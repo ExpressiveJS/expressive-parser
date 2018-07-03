@@ -30,3 +30,43 @@ Parse a raw javascript Object into a formatted routes object. (Used in Expressiv
         type: 'read',
         fn: [Function] } ]
     
+<br>
+
+### Custom terms: ###
+
+    const terms = {
+      verbs: {
+        create: 'post',
+        read: 'get',
+        update: 'put',
+        delete: 'delete',
+        list: 'options',
+      }
+    }
+
+    const routes = {
+      root: {
+        get: function(callback) {
+          callback(null, 'index page')
+        },
+      },
+    
+      users: {
+        post: function(user, callback) {},
+        get: function(userId = '...user.id', callback) {},
+      },
+    }
+
+    const router = parser(routes, terms)
+
+### Output: ###
+
+    [ { path: 'root', params: [], type: 'get', fn: [Function] },
+      { path: 'users',
+        params: [ 'user' ],
+        type: 'post',
+        fn: [Function] },
+      { path: 'users',
+        params: [ '...user.id' ],
+        type: 'get',
+        fn: [Function] } ]

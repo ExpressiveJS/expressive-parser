@@ -19,14 +19,14 @@ Parse a raw javascript Object into a formatted routes object. (Used in Expressiv
     const parser = require('expressive-parser')
     const router = parser(routes)
 
-    Output:
-      [ { path: 'root', params: [], type: 'read', fn: [Function] },
-        { path: 'users',
-          params: [ 'user' ],
-          type: 'create',
-          fn: [Function] },
-        { path: 'users',
-          params: [ '...user.id' ],
-          type: 'read',
-          fn: [Function] } ]
+### Output: ###
+    [ { path: 'root', params: [], type: 'read', fn: [Function] },
+      { path: 'users',
+        params: [ 'user' ],
+        type: 'create',
+        fn: [Function] },
+      { path: 'users',
+        params: [ '...user.id' ],
+        type: 'read',
+        fn: [Function] } ]
     

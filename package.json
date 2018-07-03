@@ -1,0 +1,30 @@
+{
+  "name": "expressive-parser",
+  "version": "1.0.0",
+  "description": "Parse a raw javascript Object into a formatted routes object. (Used in Expressive and tools)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bugs181/expressive-parser.git"
+  },
+  "keywords": [
+    "expressive",
+    "parser",
+    "object",
+    "route",
+    "router",
+    "routes"
+  ],
+  "author": "Levi Roberts",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bugs181/expressive-parser/issues"
+  },
+  "homepage": "https://github.com/bugs181/expressive-parser#readme",
+  "dependencies": {
+    "esprima": "^4.0.0"
+  }
+}

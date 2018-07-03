@@ -4,7 +4,7 @@ const parserName = 'esprima'
 const parser = require(parserName)
 
 module.exports = function parseRoutes(routerObj, cfg, routePath) {
-  if (!cfg || cfg.verbs)
+  if (!cfg || !cfg.verbs)
     cfg = { verbs: { create: 'create', read: 'read', update: 'update', delete: 'delete', list: 'list' } }
 
   let parsedRoutes = []

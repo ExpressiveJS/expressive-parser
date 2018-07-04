@@ -74,4 +74,4 @@ Parse a raw javascript Object into a formatted routes object. (Used in Expressiv
 <br>
 
 ### License: ###
-#### MIT: https://opensource.org/licenses/MIT ####
+#### [MIT LICENSE](https://github.com/bugs181/expressive-parser/blob/master/LICENSE) ####

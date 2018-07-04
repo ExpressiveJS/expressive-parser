@@ -33,14 +33,12 @@ module.exports = function parseRoutes(routerObj, cfg, routePath) {
 }
 
 function parseRoute(routePath, routeObj, routeName, routeFunc, cfg) {
-
   let route = {
     path: routePath,
     params: paramsForFunction(routeFunc),
     type: routeName,
   }
 
-  // Destructure function params from an object.
   route.fn = routeFunction(route, routeFunc)
 
   switch (route.type) {
@@ -77,7 +75,6 @@ function paramsForFunction(func) {
       .map(paramsForNode)
       .filter(param => param !== 'callback')
   } catch (e) {
-    console.log(e)
     return []
   }
 }
@@ -93,16 +90,18 @@ function paramsForNode(node) {
       return node.right.value
   }
 
-  return node.name || maybe(node.left).name || '...' + maybe(node.argument).name
+  return node.name || maybe(node.left).name || `...${maybe(node.argument).name}`
 }
 
 function getPropertyFromObject(propertyName, object) {
   const parts = propertyName.split('.')
-  const length = parts.length
   let property = object
 
-  for (let i = 0; i < length; i++ ) {
-    property = property[parts[i]]
+  for (let part of parts ) {
+    if (!property[part])
+      return null
+
+    property = property[part]
   }
 
   return property

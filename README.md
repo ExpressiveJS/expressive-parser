@@ -70,3 +70,8 @@ Parse a raw javascript Object into a formatted routes object. (Used in Expressiv
         params: [ '...user.id' ],
         type: 'get',
         fn: [Function] } ]
+        
+<br>
+
+### License: ###
+#### MIT: https://opensource.org/licenses/MIT ####

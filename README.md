@@ -42,6 +42,8 @@ Parse a raw javascript Object into a formatted routes object. (Used in Expressiv
         delete: 'delete',
         list: 'options',
         auth: 'auth',
+        
+        // Partial terms are coming soon!
       }
     }
 

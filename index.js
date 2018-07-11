@@ -58,7 +58,7 @@ function parseRoute(routePath, routeObj, routeName, routeFunc, cfg) {
     type: routeName,
   }
 
-  route.fn = routeFunction(route, routeFunc)
+  route.fn = routeFunction(route, routeFunc, cfg)
 
   switch (route.type) {
     case cfg.verbs.create: break
@@ -129,7 +129,11 @@ function getPropertyFromObject(propertyName, object) {
   return property
 }
 
-function routeFunction(route, routeObj) {
+function routeFunction(route, routeObj, cfg) {
+  let log = function() {}
+  if (cfg && cfg.logger)
+    log = cfg.logger
+
   return function(context, paramsObj, callback) {
     let params = []
 
@@ -160,6 +164,7 @@ function routeFunction(route, routeObj) {
     if (!authRoutes[route.path] || !authRoutes[route.path].fn) {
       params.push(callback)
       routeObj.apply(context, params)
+      log({ route: route.path, context: context, params: params })
       return
     }
 
@@ -167,6 +172,7 @@ function routeFunction(route, routeObj) {
     if (authRoutes[route.path].filter && !authRoutes[route.path].filter.includes(routeObj.name)) {
       params.push(callback)
       routeObj.apply(context, params)
+      log({ route: route.path, context: context, params: params })
       return
     }
 
@@ -176,6 +182,7 @@ function routeFunction(route, routeObj) {
         return callback(err)
 
       params.push(callback)
+      log({ route: route.path, context: context, params: params })
       routeObj.apply(context, params)
     }])
   }

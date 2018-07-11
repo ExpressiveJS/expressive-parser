@@ -79,6 +79,9 @@ function parseRoute(routePath, routeObj, routeName, routeFunc, cfg) {
 
   }
 
+  if (!route.path)
+    route.path = 'root'
+
   return route
 }
 

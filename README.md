@@ -1,5 +1,5 @@
 # expressive-parser
-Parse a raw javascript Object into a formatted routes object. (Used in Expressive and tools)
+Parse a raw javascript Object into a formatted routes object. (Used in [Expressive.js](https://github.com/bugs181/Expressive.js) and tools)
 
 ### Example: ###
       
